@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Image Results</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100 p-8">
+    <div class="bg-white p-6 rounded shadow-md max-w-5xl mx-auto">
+      <h2 class="text-2xl font-bold mb-6 text-center">Image Analysis Result</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Left Column: Image -->
+        <div>
+          <img
+            src="/{{ image_path }}"
+            alt="Uploaded"
+            class="w-full rounded border"
+          />
+        </div>
+        <!-- Right Column: Analysis Results -->
+        <div>
+          <p class="mb-4">
+            <strong class="text-gray-700">Is Grayscale:</strong>
+            <span class="text-gray-900"
+              >{{ 'Yes' if grayscale else 'No' }}</span
+            >
+          </p>
+          <!-- Extracted Text -->
+          <div class="mb-4">
+            <strong class="text-gray-700">Extracted Text:</strong>
+            <div class="flex flex-wrap gap-2 mt-2">
+              {% for word in text.split() %}
+              <span
+                class="bg-blue-100 text-blue-800 text-sm px-3 py-1 rounded-full border border-blue-300"
+              >
+                {{ word }}
+              </span>
+              {% endfor %}
+            </div>
+          </div>
+          <!-- Detected Objects -->
+          <div class="mb-4">
+            <strong class="text-gray-700">Detected Objects:</strong>
+            <div class="flex flex-wrap gap-2 mt-2">
+              {% for obj in objects %}
+              <span
+                class="bg-green-100 text-green-800 text-sm px-3 py-1 rounded-full border border-green-300"
+              >
+                {{ obj }}
+              </span>
+              {% endfor %}
+            </div>
+          </div>
+          <!-- Extracted Colors -->
+          <div class="mb-4">
+            <strong class="text-gray-700">Extracted Colors:</strong>
+            <div class="flex flex-wrap gap-2 mt-2">
+              {% for color in colors %}
+              <span
+                class="text-gray text-sm px-3 py-1 rounded-full border shadow-lg"
+                style="background-color: {{ color }}"
+              >
+                {{ color }}
+              </span>
+              {% endfor %}
+            </div>
+          </div>
+          <a
+            href="/"
+            class="inline-block bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600"
+          >
+            Upload Another
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
