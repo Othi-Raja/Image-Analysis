@@ -1,2 +1,5 @@
 "# Image-Analysis" 
 # Image-Analysis
+image to text extraction = https://github.com/UB-Mannheim/tesseract/wiki
+config the path to your env file from ur system variable
+pip install flask pillow pytesseract opencv-python ultralytics
