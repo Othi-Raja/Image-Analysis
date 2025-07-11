@@ -24,5 +24,5 @@ This project is a mini image processing tool that analyzes uploaded images and e
 
 1. **Clone the repo:**
    ```bash
-   git clone https://github.com/yourusername/image-analysis.git
+   git clone (https://github.com/Othi-Raja/Image-Analysis.git)
    cd image-analysis
